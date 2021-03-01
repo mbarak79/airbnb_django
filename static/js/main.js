@@ -63,13 +63,14 @@
    $.Scrollax();
 
 	var carousel = function() {
-		$('.carousel-testimony').owlCarousel({
-			center: true,
+		$('.destination-slider').owlCarousel({
+			autoplay: true,
 			loop: true,
 			items:1,
 			margin: 30,
 			stagePadding: 0,
-			nav: false,
+			nav: true,
+			dots: true,
 			navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
 			responsive:{
 				0:{
@@ -79,7 +80,51 @@
 					items: 2
 				},
 				1000:{
-					items: 3
+					items: 4
+				}
+			}
+		});
+		$('.carousel-testimony').owlCarousel({
+			autoplay: true,
+			loop: true,
+			items:1,
+			margin: 0,
+			stagePadding: 0,
+			nav: true,
+			navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
+			responsive:{
+				0:{
+					items: 1
+				},
+				600:{
+					items: 1
+				},
+				1000:{
+					items: 1
+				}
+			}
+		});
+
+		$('.single-slider').owlCarousel({
+			animateOut: 'fadeOut',
+	    animateIn: 'fadeIn',
+			autoplay: true,
+			loop: true,
+			items:1,
+			margin: 0,
+			stagePadding: 0,
+			nav: true,
+			dots: true,
+			navText: ['<span class="ion-ios-arrow-back">', '<span class="ion-ios-arrow-forward">'],
+			responsive:{
+				0:{
+					items: 1
+				},
+				600:{
+					items: 1
+				},
+				1000:{
+					items: 1
 				}
 			}
 		});
@@ -172,9 +217,10 @@
 		}
 	};
 
+	
 	var counter = function() {
 		
-		$('#section-counter, .hero-wrap, .ftco-counter').waypoint( function( direction ) {
+		$('#section-counter').waypoint( function( direction ) {
 
 			if( direction === 'down' && !$(this.element).hasClass('ftco-animated') ) {
 
@@ -197,7 +243,6 @@
 
 	}
 	counter();
-
 
 	var contentWayPoint = function() {
 		var i = 0;
@@ -293,26 +338,12 @@
   });
 
 
-	$('#book_pick_date,#book_off_date').datepicker({
+  $('#checkin_date, #checkout_date').datepicker({
 	  'format': 'm/d/yyyy',
 	  'autoclose': true
 	});
-	$('#time_pick').timepicker();
 
-	var goHere = function() {
 
-		$('.mouse-icon').on('click', function(event){
-			
-			event.preventDefault();
-
-			$('html,body').animate({
-				scrollTop: $('.goto-here').offset().top
-			}, 500, 'easeInOutExpo');
-			
-			return false;
-		});
-	};
-	goHere();
 
 
 })(jQuery);
