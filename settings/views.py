@@ -1,12 +1,18 @@
 from django.shortcuts import render
 from main.models import Property, Place, Category
 from django.db.models.query_utils import Q
+from django.db.models import Count
 # Create your views here.
 
 
 def index(request):
-    places = Place.objects.all()
+    places = Place.objects.all().annotate(property_count = Count('property_place'))
     category = Category.objects.all()
+
+    # appartments_list = Property.objects.filter()
+    # maisons_list = 
+    # villas_list = 
+    # hotels_list = 
     context = {
         'places': places,
         'category': category
