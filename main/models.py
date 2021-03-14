@@ -45,11 +45,25 @@ class Place(models.Model):
     def __str__(self):
         return self.name
 
+
 class Category(models.Model):
     name    = models.CharField( max_length=50)
+    slug    = models.SlugField(blank=True, null=True)
+    icon    = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        if self.name:
+            self.slug = slugify(self.name)
+        super(Category, self).save(*args, **kwargs)
+
+    def get_absolute_url(self):
+        return reverse('home:index', kwargs={'slug': self.slug})
+
+    
+
 
 
 class Property_review(models.Model):

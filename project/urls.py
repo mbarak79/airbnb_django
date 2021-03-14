@@ -19,8 +19,11 @@ from django.conf.urls.static import static
 from django.urls import path, include
 
 urlpatterns = [
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/' , include('accounts.urls', namespace='accounts')),
     path('admin/', admin.site.urls),
-    path('', include('main.urls', namespace='property'))
+    path('property/', include('main.urls', namespace='property')),
+    path('', include('settings.urls', namespace='home'))
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

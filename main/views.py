@@ -4,17 +4,15 @@ from .models import Property
 from django.views.generic.edit import FormMixin
 from .forms import BookForm
 from django.urls import reverse
-from .filters import PropertyFilter
+from .filters import PropertyFilter, CityFilter
 from django_filters.views import FilterView 
 
 
 
-# Create your views here.
-
 
 class PropertyList(FilterView):
     model = Property
-    paginate_by = 2
+    paginate_by = 4
     filterset_class = PropertyFilter
     template_name = 'main/property_list.html'
     
@@ -37,4 +35,15 @@ class DetailList(FormMixin, DetailView):
             myform.user = request.user
             myform.save()
 
-            return redirect(reverse('property_detail', kwargs={'id': myform.id }))
+            return redirect(reverse('main:property_detail', kwargs={'id': myform.id }))
+
+
+
+class AboutView(ListView):
+    model = Property
+    template_name = "main/about.html"
+
+
+class ContactView(ListView):
+    model = Property
+    template_name = "main/about.html"

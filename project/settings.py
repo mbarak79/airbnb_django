@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -40,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'main',
-    'accounts',
     'about',
     'blog',
     'settings',
@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     "bootstrap5",
     'django_summernote',
     'django_filters',
+    'widget_tweaks',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -137,3 +139,6 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
