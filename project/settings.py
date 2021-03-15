@@ -26,7 +26,7 @@ SECRET_KEY = 's)qfcy)=5a#fv_=r+p-5bhgb0t#%b8z)9$#sc7xkl1vb-26=sd'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['airdmb.herokuapp.com/', '127.0.0.1']
+ALLOWED_HOSTS = ['airdmd.herokuapp.com/', '127.0.0.1']
 
 
 # Application definition
