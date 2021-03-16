@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django_filters',
     'widget_tweaks',
     'bootstrap4',
+    'django_seed',
 ]
 
 MIDDLEWARE = [

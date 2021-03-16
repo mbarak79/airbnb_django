@@ -4,6 +4,7 @@ from .models import Property
 from django.views.generic.edit import FormMixin
 from .forms import BookForm
 from django.urls import reverse
+from django.contrib import messages
 from .filters import PropertyFilter, CityFilter
 from django_filters.views import FilterView 
 
@@ -12,7 +13,7 @@ from django_filters.views import FilterView
 
 class PropertyList(FilterView):
     model = Property
-    paginate_by = 4
+    paginate_by = 6
     filterset_class = PropertyFilter
     template_name = 'main/property_list.html'
     
@@ -32,10 +33,11 @@ class DetailList(FormMixin, DetailView):
         if form.is_valid():
             myform = form.save(commit=False)
             myform.property = self.get_object()
-            myform.user = request.user
+            # myform.user = request.user
             myform.save()
+            messages.success(request, 'Your Reservation Confirmed ')
 
-            return redirect(reverse('main:property_detail', kwargs={'id': myform.id }))
+            return redirect(reverse('property:property_detail', kwargs={'slug': self.get_object().slug}))
 
 
 
