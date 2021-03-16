@@ -18,7 +18,7 @@ def signup(request):
             password = signup_form.cleaned_data['password1']
             user = authenticate(username=username,password=password)
             login(request,user)
-            return redirect(reverse('settings:index'))
+            return redirect(reverse('home:index'))
     
     else:
         signup_form = UserCreateForm()
