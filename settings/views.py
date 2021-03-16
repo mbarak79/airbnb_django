@@ -9,13 +9,17 @@ def index(request):
     places = Place.objects.all().annotate(property_count = Count('property_place'))
     category = Category.objects.all()
 
-    # appartments_list = Property.objects.filter()
-    # maisons_list = 
-    # villas_list = 
-    # hotels_list = 
+    appartments_list = Property.objects.filter(category__name="Appartements")[:5]
+    maisons_list = Property.objects.filter(category__name="Maisons")[:4]
+    villas_list = Property.objects.filter(category__name="Villas")[:4]
+    hotels_list = Property.objects.filter(category__name="Hotels")[:4]
     context = {
         'places': places,
-        'category': category
+        'category': category,
+        'appartments_list': appartments_list,
+        'maisons_list' : maisons_list,
+        'villas_list' : villas_list,
+        'hotels_list' : hotels_list
     }
     return render(request, 'settings/index.html', context )
     

@@ -7,6 +7,7 @@ from django.urls import reverse
 from django.contrib import messages
 from .filters import PropertyFilter, CityFilter
 from django_filters.views import FilterView 
+from django.http import JsonResponse
 
 
 
@@ -48,4 +49,4 @@ class AboutView(ListView):
 
 class ContactView(ListView):
     model = Property
-    template_name = "main/about.html"
+    template_name = "main/contact.html"
