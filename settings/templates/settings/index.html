@@ -111,14 +111,14 @@
 					{% for place in places|slice:':5' %}
 					<div class="item">
 						<div class="destination">
-							<a href="#" class="img d-flex justify-content-center align-items-center"
+							<a href="{{ place.get_absolute_url }}" class="img d-flex justify-content-center align-items-center"
 								style="background-image: url({{ place.image.url }});">
 								<div class="icon d-flex justify-content-center align-items-center">
 									<span class="icon-search2"></span>
 								</div>
 							</a>
 							<div class="text p-3">
-								<h3><a href="#">{{ place }}</a></h3>
+								<h3><a href="{{ place.get_absolute_url }}">{{ place }}</a></h3>
 								<span class="listing">{{ place.property_count }} Listing</span>
 							</div>
 						</div>

@@ -41,9 +41,13 @@ class PropertiesImages(models.Model):
 class Place(models.Model):
     name    = models.CharField(max_length=50)
     image   = models.ImageField(upload_to='Places/')
+    slug    = models.SlugField(blank=True, null=True)
 
     def __str__(self):
         return self.name
+
+    # def get_absolute_url(self):
+    #     return reverse("property:property_detail", kwargs={'slug': self.slug})
 
 
 class Category(models.Model):

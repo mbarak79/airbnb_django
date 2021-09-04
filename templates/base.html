@@ -31,6 +31,21 @@
     <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
     <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.38.0/js/tempusdominus-bootstrap-4.min.js"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.38.0/css/tempusdominus-bootstrap-4.min.css"
+        crossorigin="anonymous" />
+    <!-- Moment.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js" integrity="sha256-VBLiveTKyUZMEzJd6z2mhfxIqz3ZATCuVMawPZGzIfA=" crossorigin="anonymous"></script>
+
+    <!-- Tempus Dominus Bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha256-XPTBwC3SBoWHSmKasAk01c08M6sIA5gF5+sRxqak2Qs=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js" integrity="sha256-z0oKYg6xiLq3yJGsp/LsY9XykbweQlHl42jHv2XTBz4=" crossorigin="anonymous"></script>
+        
+    {{ form.media }}
 </head>
 
 <body>
@@ -51,7 +66,7 @@
                     <li class="nav-item"><a href="{% url 'property:contact' %}" class="nav-link">Contact</a></li>
 
                     {% if request.user.is_authenticated %}
-                    <li class="nav-item cta mr-2"><a href="{% url 'logout' %}" class="nav-link"><span>Welcome {{ user}}</span></a></li>
+                    <li class="nav-item cta mr-2"><a href="{% url 'logout' %}" class="nav-link"><span>Welcome {{user}}</span></a></li>
                     <li class="nav-item cta"><a href="{% url 'logout' %}" class="nav-link"><span>Log Out</span></a></li>
                     {% else %}
                     <li class="nav-item cta mr-2"><a href="{% url 'login' %}" class="nav-link"><span>Log In</span></a>
@@ -77,7 +92,7 @@
             <div class="row mb-5">
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">dirEngine</h2>
+                        <h2 class="ftco-heading-2">AirDmd</h2>
                         <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
                             there live the blind texts.</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
@@ -170,6 +185,14 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="{% static 'js/google-map.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
+
+    <script>
+        $(function () {
+          $("#datetimepicker1").datetimepicker({
+            format: 'DD/MM/YYYY HH:mm',
+          });
+        });
+      </script>
 
 </body>
 

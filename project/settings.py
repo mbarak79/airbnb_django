@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'bootstrap4',
     'django_seed',
+    'tempus_dominus',
 ]
 
 MIDDLEWARE = [

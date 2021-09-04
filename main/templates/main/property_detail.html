@@ -22,6 +22,16 @@
 	</div>
 </div>
 
+<br>
+
+{% if messages %}
+<ul class="alert alert-success alert-dismissible fade show text-center " role="alert">
+	{% for message in messages %}
+	<li {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }}
+	</li>
+	{% endfor %}
+</ul>
+{% endif %}
 
 <section class="ftco-section ftco-degree-bg">
 	<div class="container">
@@ -63,12 +73,12 @@
 								{% csrf_token %}
 								{% bootstrap_form form %}
 								{% buttons %}
-								<button type="submit" class="btn btn-primary">Check Availability</button>
+								<button type="submit" class="btn btn-primary">Book Now</button>
 								{% endbuttons %}
 							</form>
 
 						</div>
-						<div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
+						<!-- <div class="col-md-12 hotel-single ftco-animate mb-5 mt-4">
 							<h4 class="mb-4">Review &amp; Ratings</h4>
 							<div class="row">
 								<div class="col-md-6">
@@ -121,7 +131,7 @@
 									</form>
 								</div>
 							</div>
-						</div>
+						</div> -->
 						<div class="col-md-12 hotel-single ftco-animate mb-5 mt-5">
 							<h4 class="mb-4">Related Properties</h4>
 							<div class="row">
@@ -147,7 +157,8 @@
 													</p>
 												</div>
 												<div class="two">
-													<span class="price per-price">${{property.price}}<br><small>/night</small></span>
+													<span
+														class="price per-price">${{property.price}}<br><small>/night</small></span>
 												</div>
 											</div>
 											<span class="ml-auto"><a
@@ -171,10 +182,6 @@
 			</div>
 		</div>
 </section> <!-- .section -->
-
-
-
-
 
 
 {% endblock body %}

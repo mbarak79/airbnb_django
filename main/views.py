@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
-from .models import Property
+from .models import Property, Place
 from django.views.generic.edit import FormMixin
 from .forms import BookForm
 from django.urls import reverse
@@ -34,7 +34,6 @@ class DetailList(FormMixin, DetailView):
         if form.is_valid():
             myform = form.save(commit=False)
             myform.property = self.get_object()
-            # myform.user = request.user
             myform.save()
             messages.success(request, 'Your Reservation Confirmed ')
 
